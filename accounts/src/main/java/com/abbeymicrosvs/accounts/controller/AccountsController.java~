@@ -6,7 +6,6 @@ import com.abbeymicrosvs.accounts.dto.CustomerDto;
 import com.abbeymicrosvs.accounts.dto.ResponseDto;
 import com.abbeymicrosvs.accounts.service.IAccountsService;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -38,9 +37,7 @@ public class AccountsController {
     }
 
     @GetMapping("/fetch")
-    public ResponseEntity<CustomerDto> fetchAccountDetails(@RequestParam
-                                                               @Pattern(regexp = "(^$|^[0-9]{10})", message = "Account number must be 10 digits")
-                                                               String mobileNumber) {
+    public ResponseEntity<CustomerDto> fetchAccountDetails(@RequestParam String mobileNumber) {
 
       CustomerDto customerDto =  iAccountsService.fetchAccountDetails(mobileNumber);
       return ResponseEntity.status(HttpStatus.OK).body(customerDto);
@@ -61,9 +58,7 @@ public class AccountsController {
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<ResponseDto> deleteAccountDetails(@RequestParam
-                                                                @Pattern(regexp = "(^$|^[0-9]{10})", message = "Account number must be 10 digits")
-                                                                String mobileNumber){
+    public ResponseEntity<ResponseDto> deleteAccountDetails(@RequestParam String mobileNumber){
         boolean isDeleted = iAccountsService.deleteAccount(mobileNumber);
         if(isDeleted){
             return ResponseEntity
