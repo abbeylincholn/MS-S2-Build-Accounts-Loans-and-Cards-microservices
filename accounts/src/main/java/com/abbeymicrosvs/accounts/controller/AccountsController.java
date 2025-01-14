@@ -20,7 +20,7 @@ import java.awt.*;
 
 @RestController
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
-//@AllArgsConstructor
+@AllArgsConstructor
 @Validated
 public class AccountsController {
 
@@ -68,7 +68,7 @@ public class AccountsController {
         if(isDeleted){
             return ResponseEntity
                     .status(HttpStatus.OK)
-                    .body(new ResponseDto(AccountsConstants.STATUS_201, AccountsConstants.MESSAGE_201));
+                    .body(new ResponseDto(AccountsConstants.STATUS_200, AccountsConstants.MESSAGE_200));
         } else {
             return ResponseEntity
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)
