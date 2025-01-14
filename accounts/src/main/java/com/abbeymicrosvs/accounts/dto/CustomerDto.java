@@ -20,10 +20,9 @@ public class CustomerDto {
 
     @NotEmpty(message = "Mobile number should not be null or empty")
     @Pattern(regexp = "(^$|^[0-9]{10})", message = "Mobile number must be 10 digits")
-
     private String mobileNumber;
 
-    @NotEmpty
+
     private AccountsDto accountsDto;
 
 }
