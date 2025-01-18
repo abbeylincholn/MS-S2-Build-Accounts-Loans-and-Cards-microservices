@@ -8,7 +8,7 @@ import java.util.Optional;
 @Component("auditAwareImpl")
 public class AuditAwareImpl implements AuditorAware<String> {
 
-    /**
+    /**   use to audit the database columns
      * Returns the current auditor of the application
      * @return the current audiotor
      */
